@@ -1,0 +1,16 @@
+/* Name: Ethan Gutknecht
+ * Class: CSE174
+ * Instructor: Meisam Amjad
+ * Date: Sunday September 19, 2019
+ * Description: 
+ */
+
+import java.util.Scanner;
+
+public class Lab4{
+  public static void main(String[] args){
+     Scanner scan = new Scanner(System.in);
+
+  }
+}
+  

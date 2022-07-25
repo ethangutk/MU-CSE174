@@ -1,0 +1,71 @@
+import java.util.*;
+
+/**
+ * YOUR NAME
+ * YOUR SECTION
+ * 
+ * Shopping Cart Application Template
+ * Complete the missing code in the program
+ */
+public class Lab13ShoppingApp {
+   static Scanner in = new Scanner(System.in);
+   /* main method */
+   public static void main(String[] args) {
+      //create cart object with the capacity of 10 orders
+      ShoppingCart cart = new ShoppingCart(10);
+      
+      boolean exit = false;
+      
+      while(!exit) {
+         char op = menu();
+         
+         switch (op) {
+            case 'A': 
+               cart.addOrder(readOrderFromKeyboard());
+               break;
+            case 'B': 
+               //TODO - step2
+               //Method call for listing orders in the cart
+               break;
+            case 'C': 
+               //TODO
+               //Method call for listing orders in the cart
+               //Method call for billing orders in the cart
+               break;
+            case 'X': 
+               //TODO
+               //Code for exit
+               break;
+            default: System.out.println("Wrong Option"); 
+         }
+      }
+   }
+   
+   /**
+    * prints a menu and returns a chosen option.
+    * @return char The chosen option from the menu.
+    */ 
+   public static char menu() {
+      Scanner keyboard = new Scanner(System.in);
+      System.out.println("\nShopping Cart App");
+      System.out.println("\tA. Add an item to the Shopping Cart");
+      System.out.println("\tB. List items in the Shopping Cart");
+      System.out.println("\tC. Pay the bill");
+      System.out.println("\tX. Exit");
+      System.out.println();
+      System.out.print("Option:"); 
+      
+      return keyboard.next().toUpperCase().charAt(0);
+   }
+   
+   
+   public static Order readOrderFromKeyboard() {
+      //TODO - step1
+      // You need to complete this method.
+      // When you are done get rid of the return null line
+      // since that line is just there to prevent 
+      // compile errors.
+      
+      return null;
+   }
+}

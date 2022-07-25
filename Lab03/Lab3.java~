@@ -1,0 +1,72 @@
+
+
+
+
+import java.util.Scanner;
+
+
+public class Lab3 {
+    public static void main(String[] args){
+          //Variables
+          Scanner scan = new Scanner(System.in);
+          String firstName, lastName, phoneNumber;
+          
+          //user input
+          System.out.printf("Enter your first and last name: ") ;
+          firstName = scan.next();
+          lastName = scan.next();
+          System.out.printf("Enter your phone number in this format (___) ___ - ___: ") ;
+          phoneNumber = scan.next();
+          System.out.printf("Enter three scores: ");
+          Double score1 = scan.nextDouble();
+          Double score2 = scan.nextDouble();
+          Double score3 = scan.nextDouble();
+          
+          //calculating values (med max and min)
+          Double maxValue = Math.max(Math.max(score1, score2), score3);
+          Double minValue = Math.min(Math.min(score1, score2), score3);
+          Double medValue = ((score1 + score2 + score3) - (maxValue + minValue));
+          
+          //results
+          System.out.printf("Name : %S %.1S %n", firstName, lastName );
+          System.out.printf("Phone: %S%S%n", phoneNumber.substring(5,8), phoneNumber.substring(9,13)); 
+          System.out.printf("Average = %.2f %n", (score1 + score2 + score3)/3 );
+          System.out.printf("Maximum = %.2f %n", maxValue);
+          System.out.printf("Median  = %.2f %n", medValue);
+          System.out.printf("Minimum = %.2f %n", minValue);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*String str1 = " mississippi";
+       String str2 = "mis";
+       String str3 = str2.substring(2);
+       int n1 = str1.indexOf("ip");
+       int n2 = str1.indexOf(str2);
+       int n3 = str1.lastIndexOf("is");
+       int n4 = str1.indexOf("Is");
+       int n5 = str1.indexOf(str2.substring(2));
+       System.out.println(str3);
+       System.out.println(n1);
+       System.out.println(n2);
+       System.out.println(n3);
+       System.out.println(n4);
+       System.out.println(n5);
+       */
+      //System.out.println("hello");
+      //System.out.printf("%5d\n%10s\n%5c\n%10.3f\\\n", 70, "hello", 'a', 1.2367);
+      
+      //System.out.printf("%0.2f", 1.2367);
+      //System.out.println(result3);
