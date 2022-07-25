@@ -1,0 +1,179 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Arrays;
+
+/* 
+ * PhoneBook class
+ * CSE 174 fall 2019
+ * YOUR NAME
+ * YOUR INFORMATION
+ * 
+ * The PhoneBook class simulates a simple phone book application.
+ * Copyright(C) Nov 2019
+ */
+
+public class PhoneBook {
+  /**
+   * 
+   * @param 
+   * @param
+   * @param
+   * @param
+   * @param
+   */ 
+  public static void add(ArrayList<ContactInfo> list, String name, String label, String pNum) { 
+    Phone newPhone = new Phone(label, pNum);
+    ArrayList<Phone> newContactPhoneNumbers = new ArrayList<Phone>();
+    newContactPhoneNumbers.add(newPhone);
+    ContactInfo newContact = new ContactInfo();
+    newContact = new ContactInfo(name, newContactPhoneNumbers);
+    list.add(newContact);
+    // Adds a ContactInfo object to the list 
+    // If the name is already in the list
+    // the method should print:
+    // "The name already exists!"
+    // If the contact is added successfully, the method should
+    // print "*The contact has been added successfully*"
+  } 
+  
+  /**
+   * 
+   * @param
+   * @param
+   * @param
+   * @param
+   */ 
+  public static void append(ArrayList<ContactInfo> list, String name, String label, String pNum) { 
+    // Adds a new Phone object to a specific ContactInfo  
+    // If this person does not exist the method should print: 
+    //   "Couldn't find the name!" 
+    // If a similar label or phone number already exists for  
+    // that person, the result should be: 
+    //     "The label/number already exists for this person!" 
+    // If the number is added, the method should print 
+    // "*The number has been added successfully*"
+  } 
+  
+  /**
+   * 
+   * 
+   * @param
+   * @param
+   */ 
+  public static void display(ArrayList<ContactInfo> list, 
+                             String name) { 
+    //Displays all the phone numbers that belongs to the given   
+    // name. 
+    // If the name doesn't exist in the list, the method should print
+    // "Couldn't find the name"  
+  } 
+  
+  /**
+   * 
+   * @param
+   */ 
+  public static void displayAll(ArrayList<ContactInfo> list){ 
+    // Displays all the names and the phone numbers. 
+    // If the list is empty, the method should print
+    //"The list is Empty!"
+    
+  } 
+  
+  /**
+   * 
+   * @param
+   * @param
+   */ 
+  public static void remove(ArrayList<ContactInfo> list, String name) { 
+    // Remove all data related to the given name from the  
+    // list. 
+    // If the list is empty, the method should print
+    // "The list is Empty!",
+    // If the name does not exist the method should print 
+    // �"Couldn't find the name!"
+    // If the contat is removed the method should print
+    // *Contact is removed successfully*
+  } 
+  
+  
+  
+  // main method
+  public static void main(String[] args) {
+    ArrayList<ContactInfo> contacts = new ArrayList<ContactInfo>();
+    Scanner scan = new Scanner(System.in);
+    int userChoice;
+    while (true){
+      // This is how you need to define your list.
+      // Use this list.
+      
+      System.out.println(" ");
+      System.out.println("1. Add a contact");
+      System.out.println("2. Add a new number to an old contact");
+      System.out.println("3. Display a contact");
+      System.out.println("4. Display All");
+      System.out.println("5. Remove a contact");
+      System.out.println("6. Exit");
+      System.out.println("Enter your choice:");
+      userChoice = scan.nextInt();
+      
+      if (userChoice == 1){ //Add a contact
+        System.out.println("---Add a contact");
+        System.out.print("Name:");
+        String userInputContactName = scan.next()+ " " + scan.next();
+        System.out.print("Label:");
+        String userInputLabel = scan.next();
+        System.out.print("Phone number (i.e. (513)111-1111):");
+        String userInputPhoneNumber = scan.next();
+        
+        ArrayList<Phone> newContactPhoneNumbers = new ArrayList<Phone>();
+        add(contacts, userInputContactName, userInputLabel, userInputPhoneNumber);
+        
+      }
+      else if (userChoice == 2){ //Add a new number to an old contact
+        
+      }
+      else if (userChoice == 3){ //Display a contact
+        boolean successful = false;
+        
+        System.out.print("Name:");
+        String contactToFind = scan.next();
+        for (int i = 0; i < contacts.size(); i++){
+          
+          if (contactToFind.equals(contacts.get(i).getName())) {
+            successful = true;
+            
+            for (int b = 0; b < contacts.get(i).getPhones().size(); b++){
+              System.out.printf("%10s: %s %n", contacts.get(i).getPhones().get(b).getLabel(), contacts.get(i).getPhones().get(b).getPhonNum());
+            }
+          }
+        }
+        if (successful = false) System.out.println("Contact not found!");
+        
+      }
+      else if (userChoice == 4){ //Display All
+        System.out.println("---Display all");
+        
+        for (int i = 0; i < contacts.size(); i++){
+          System.out.println(contacts.get(i).getName()); //print name
+          for (int b = 0; b < contacts.get(i).getPhones().size(); b++){
+            System.out.printf("%10s: %s %n", contacts.get(i).getPhones().get(b).getLabel(), contacts.get(i).getPhones().get(b).getPhonNum());
+          }
+        }
+        
+      }
+      else if (userChoice == 5){ //Remove a contact
+        
+      }
+      else if (userChoice == 6){ //Exit
+        break;
+      }
+      else{ //invalid input
+        System.out.println("Invalid Input!");
+      }
+      
+      
+      
+    }
+  }
+}
+

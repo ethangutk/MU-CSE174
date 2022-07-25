@@ -1,0 +1,87 @@
+/* Name: Ethan Gutknecht
+ * Class: CSE174
+ * Instructor: Meisam Amjad
+ * Date: Sunday October 20, 2019
+ * Description: a program that allows the user to find the area of a circle, surface area of a cylinder, or volume of a cylinder
+ */
+
+
+import java.util.Scanner;
+public class PatternChecker{
+  //global variables
+  static Scanner scan = new Scanner(System.in);
+  static int firstmax = Integer.MIN_VALUE;
+  static int secondmax = 0;
+  static int firstmin = Integer.MAX_VALUE; //2147483647
+  static int secondmin = 0;
+  
+  
+  //max number method
+  public static void maxNumber(int num){
+    if (num > firstmax){
+      secondmax = firstmax;
+      firstmax  = num;
+    }
+    else if (num < firstmax && num > secondmax) secondmax = num;
+  }
+  
+  
+  //min number method
+  public static void minNumber(int num){
+    if (num < firstmin){
+      secondmin = firstmin;
+      firstmin  = num;
+    }
+    else if (num > firstmin && num < secondmin) secondmin = num;
+  }
+  
+  
+  //main method
+  public static void main(String[] args){
+    //variables 
+    int i = 0, choice, limit, numbers = 0;
+    
+    
+    //start of program
+    while (true) {
+      System.out.println("List of Pattern Checker problems:");
+      System.out.println("1) Largest and Smallest Pairs");
+      System.out.println("2) Counting digits");
+      System.out.println("3) Quit");
+      
+      choice = scan.nextInt();
+      System.out.println("Choice: " + choice);
+      
+      //choice 1
+      if (choice == 1) {
+        System.out.println("Enter limit: ");
+        limit = scan.nextInt();
+        System.out.println("Enter " + limit + " numbers:");
+        
+        while (i < limit) {
+          int userInput = scan.nextInt();
+          maxNumber(userInput);
+          minNumber(userInput);
+          maxNumber(firstmin);
+          minNumber(firstmax);
+          i++;
+        }
+        System.out.println("*** Largest and Smallest Pairs: (" + firstmax + ", " + secondmax + "),(" + firstmin + ", " + secondmin + ")");
+      }
+      if (choice == 2) {
+        
+      }
+      if (choice == 3) {
+        break;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
